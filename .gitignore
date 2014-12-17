@@ -1,0 +1,4 @@
+cobbler_local.mod
+cobbler_local.pp
+cobbler_local.te_BAK.*
+cobbler_local.te_NEW

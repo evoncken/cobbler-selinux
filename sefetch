@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Fetch audit messages, compile a module for SElinux
+
+cp cobbler_local.te cobbler_local.te_BAK.$$
+#cat /var/log/audit/audit.log | audit2allow -l -v -m cobbler_local > cobbler_local.te
+grep cobblerd_t /var/log/audit/audit.log | audit2allow -l -v -m cobbler_local > cobbler_local.te_NEW
+
+echo "------------------------------------------------------"
+cat cobbler_local.te_NEW
+echo "------------------------------------------------------"
+echo "Do not forget to merge cobbler_local.te_NEW into the cobbler_local.te policy file, then 'seload' it"

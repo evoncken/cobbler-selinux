@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Compile and load a module for SElinux
+
+checkmodule -M -m -o cobbler_local.mod cobbler_local.te && semodule_package -o cobbler_local.pp -m cobbler_local.mod && semodule -v -i cobbler_local.pp
+
